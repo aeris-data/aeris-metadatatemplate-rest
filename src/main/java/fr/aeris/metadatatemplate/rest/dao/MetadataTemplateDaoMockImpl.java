@@ -32,14 +32,53 @@ public class MetadataTemplateDaoMockImpl implements MetadataTemplateDao {
 	private void init() {
 		MetadataTemplate template1 = new MetadataTemplate();
 		template1.setName("Template1");
-		template1.addDowloadBlock("download");
+		/**
+		 * TEMPLATE1-----------------------------------------------------------------------------------------------------------
+		 */
+		
+		/**
+		 * METADATA BLOCKS
+		 */
 		template1.addMetadataBlock("contacts");
+//		template1.addMetadataBlock("data-links");
+		template1.addMetadataBlock("description");
+		template1.addMetadataBlock("information");
+		template1.addMetadataBlock("information-links");
+//		template1.addMetadataBlock("instruments");
+//		template1.addMetadataBlock("modification");
+//		template1.addMetadataBlock("parameters");
+		template1.addMetadataBlock("platforms");
+		template1.addMetadataBlock("publications");
+		template1.addMetadataBlock("quicklook-gallery");
+		template1.addMetadataBlock("spatial-extents");
+		template1.addMetadataBlock("temporal-extents");
+	
+		
+		/**
+		 * DOWLOAD BLOCKS
+		 */
+		template1.addDowloadBlock("citations");
+		template1.addDowloadBlock("data-policy");
+		template1.addDowloadBlock("formats");
+		template1.addDowloadBlock("single-file-download");
+		template1.addDowloadBlock("year-select-download");
 
+		/**
+		 * TEMPLATE2-----------------------------------------------------------------------------------------------------------
+		 */
 		MetadataTemplate template2 = new MetadataTemplate();
 		template2.setName("Template2");
-		template2.addDowloadBlock("otherdownload");
+		
+		/**
+		 * METADATA BLOCKS
+		 */
 		template2.addMetadataBlock("abstract");
 		template2.addMetadataBlock("contacts");
+		
+		/**
+		 * DOWLOAD BLOCKS
+		 */
+		template2.addDowloadBlock("otherdownload");
 
 		add(template1);
 		add(template2);
@@ -47,3 +86,4 @@ public class MetadataTemplateDaoMockImpl implements MetadataTemplateDao {
 	}
 
 }
+
