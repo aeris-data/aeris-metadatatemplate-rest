@@ -12,7 +12,7 @@ public class MetadataTemplate {
 	
 	private String name;
 	private List<String> metadataTab;
-	private List<String> dowloadTab;
+	private List<String> downloadTab;
 	private List<String> statisticsTab;
 	private List<String> visualisationTab;
 
@@ -32,12 +32,12 @@ public class MetadataTemplate {
 		this.metadataTab = metadataTab;
 	}
 
-	public List<String> getDowloadTab() {
-		return dowloadTab;
+	public List<String> getDownloadTab() {
+		return downloadTab;
 	}
 
-	public void setDowloadTab(List<String> dowloadTab) {
-		this.dowloadTab = dowloadTab;
+	public void setDownloadTab(List<String> downloadTab) {
+		this.downloadTab = downloadTab;
 	}
 
 	public List<String> getStatisticsTab() {
@@ -63,11 +63,11 @@ public class MetadataTemplate {
 		metadataTab.add(blockName);
 	}
 
-	public void addDowloadBlock(String blockName) {
-		if (dowloadTab == null) {
-			dowloadTab = new ArrayList<>();
+	public void addDownloadBlock(String blockName) {
+		if (downloadTab == null) {
+			downloadTab = new ArrayList<>();
 		}
-		dowloadTab.add(blockName);
+		downloadTab.add(blockName);
 	}
 	
 	public void addStatisticsBlock(String blockName) {

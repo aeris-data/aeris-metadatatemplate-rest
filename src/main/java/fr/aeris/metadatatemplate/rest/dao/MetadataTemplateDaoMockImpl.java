@@ -57,11 +57,12 @@ public class MetadataTemplateDaoMockImpl implements MetadataTemplateDao {
 		/**
 		 * DOWLOAD BLOCKS
 		 */
-		template1.addDowloadBlock("citations");
-		template1.addDowloadBlock("data-policy");
-		template1.addDowloadBlock("formats");
-		template1.addDowloadBlock("single-file-download");
-		template1.addDowloadBlock("year-select-download");
+		template1.addDownloadBlock("citations");
+		template1.addDownloadBlock("data-links");
+		template1.addDownloadBlock("data-policy");
+		template1.addDownloadBlock("formats");
+//		template1.addDowloadBlock("single-file-download");
+		template1.addDownloadBlock("year-select-download");
 
 		/**
 		 * TEMPLATE2-----------------------------------------------------------------------------------------------------------
@@ -78,7 +79,7 @@ public class MetadataTemplateDaoMockImpl implements MetadataTemplateDao {
 		/**
 		 * DOWLOAD BLOCKS
 		 */
-		template2.addDowloadBlock("otherdownload");
+		template2.addDownloadBlock("otherdownload");
 
 		add(template1);
 		add(template2);
