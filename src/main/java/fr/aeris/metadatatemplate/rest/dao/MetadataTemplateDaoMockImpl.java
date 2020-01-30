@@ -59,10 +59,10 @@ public class MetadataTemplateDaoMockImpl implements MetadataTemplateDao {
 		 */
 		template1.addDownloadBlock("citations");
 		template1.addDownloadBlock("data-links");
-		template1.addDownloadBlock("data-policy");
+		template1.addDownloadBlock("datapolicy");
 		template1.addDownloadBlock("formats");
 //		template1.addDowloadBlock("single-file-download");
-		template1.addDownloadBlock("year-select-download");
+//		template1.addDownloadBlock("year-select-download");
 
 		/**
 		 * TEMPLATE2-----------------------------------------------------------------------------------------------------------
