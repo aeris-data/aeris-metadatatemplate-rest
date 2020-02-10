@@ -42,24 +42,24 @@ public class MetadataTemplateDaoMockImpl implements MetadataTemplateDao {
 		template1.addMetadataBlock("contacts");
 //		template1.addMetadataBlock("data-links");
 		template1.addMetadataBlock("description");
-		template1.addMetadataBlock("information");
-		template1.addMetadataBlock("information-links");
+//		template1.addMetadataBlock("information");
+//		template1.addMetadataBlock("information-links");
 //		template1.addMetadataBlock("instruments");
 //		template1.addMetadataBlock("modification");
 //		template1.addMetadataBlock("parameters");
-		template1.addMetadataBlock("platforms");
-		template1.addMetadataBlock("publications");
-		template1.addMetadataBlock("quicklook-gallery");
-		template1.addMetadataBlock("spatial-extents");
-		template1.addMetadataBlock("temporal-extents");
+//		template1.addMetadataBlock("platforms");
+//		template1.addMetadataBlock("publications");
+//		template1.addMetadataBlock("quicklook-gallery");
+//		template1.addMetadataBlock("spatial-extents");
+//		template1.addMetadataBlock("temporal-extents");
 	
 		
 		/**
 		 * DOWLOAD BLOCKS
 		 */
-		template1.addDownloadBlock("citations");
-		template1.addDownloadBlock("data-links");
-		template1.addDownloadBlock("datapolicy");
+//		template1.addDownloadBlock("citations");
+//		template1.addDownloadBlock("data-links");
+//		template1.addDownloadBlock("datapolicy");
 		template1.addDownloadBlock("formats");
 //		template1.addDowloadBlock("single-file-download");
 //		template1.addDownloadBlock("year-select-download");
