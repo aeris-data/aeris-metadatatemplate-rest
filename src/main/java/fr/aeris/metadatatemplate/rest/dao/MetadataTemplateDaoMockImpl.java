@@ -1,15 +1,19 @@
 package fr.aeris.metadatatemplate.rest.dao;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
-
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+import fr.aeris.metadatatemplate.rest.config.Profiles;
 import fr.aeris.metadatatemplate.rest.domain.MetadataTemplate;
 
 @Component
+@Profile(Profiles.OFFLINE_PROFILE)
 public class MetadataTemplateDaoMockImpl implements MetadataTemplateDao {
 
 	private Map<String, MetadataTemplate> templates = new HashMap<>();
@@ -24,67 +28,40 @@ public class MetadataTemplateDaoMockImpl implements MetadataTemplateDao {
 		}
 	}
 
-	private void add(MetadataTemplate template) {
-		templates.put(template.getName().toLowerCase(), template);
+	@Override
+	public void delete(String id) {
+		MetadataTemplate template = findById(id);
+		if (template != null) {
+			templates.remove(getKey(template));
+		}
+
 	}
 
-	@PostConstruct
-	private void init() {
-		MetadataTemplate template1 = new MetadataTemplate();
-		template1.setName("Template1");
-		/**
-		 * TEMPLATE1-----------------------------------------------------------------------------------------------------------
-		 */
-		
-		/**
-		 * METADATA BLOCKS
-		 */
-		template1.addMetadataBlock("contacts");
-//		template1.addMetadataBlock("data-links");
-		template1.addMetadataBlock("description");
-		template1.addMetadataBlock("information");
-		template1.addMetadataBlock("information-links");
-//		template1.addMetadataBlock("instruments");
-//		template1.addMetadataBlock("modification");
-//		template1.addMetadataBlock("parameters");
-//		template1.addMetadataBlock("platforms");
-		template1.addMetadataBlock("publications");
-//		template1.addMetadataBlock("quicklook-gallery");
-		template1.addMetadataBlock("spatial-extents");
-		template1.addMetadataBlock("temporal-extents");
-	
-		
-		/**
-		 * DOWLOAD BLOCKS
-		 */
-//		template1.addDownloadBlock("citations");
-//		template1.addDownloadBlock("data-links");
-//		template1.addDownloadBlock("datapolicy");
-		template1.addDownloadBlock("formats");
-//		template1.addDowloadBlock("single-file-download");
-//		template1.addDownloadBlock("year-select-download");
+	private MetadataTemplate findById(String id) {
+		Collection<MetadataTemplate> values = templates.values();
+		for (MetadataTemplate metadataTemplate : values) {
+			if (metadataTemplate.getId().equalsIgnoreCase(id)) {
+				return metadataTemplate;
+			}
+		}
+		return null;
+	}
 
-		/**
-		 * TEMPLATE2-----------------------------------------------------------------------------------------------------------
-		 */
-		MetadataTemplate template2 = new MetadataTemplate();
-		template2.setName("Template2");
-		
-		/**
-		 * METADATA BLOCKS
-		 */
-		template2.addMetadataBlock("abstract");
-		template2.addMetadataBlock("contacts");
-		
-		/**
-		 * DOWLOAD BLOCKS
-		 */
-		template2.addDownloadBlock("otherdownload");
+	@Override
+	public MetadataTemplate save(MetadataTemplate metadataTemplate) {
+		templates.put(getKey(metadataTemplate), metadataTemplate);
+		return metadataTemplate;
+	}
 
-		add(template1);
-		add(template2);
+	private String getKey(MetadataTemplate metadataTemplate) {
+		return metadataTemplate.getName().toLowerCase();
+	}
 
+	@Override
+	public List<MetadataTemplate> findAll() {
+		List<MetadataTemplate> result = new ArrayList<MetadataTemplate>();
+		result.addAll(templates.values());
+		return result;
 	}
 
 }
-

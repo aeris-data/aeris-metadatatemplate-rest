@@ -3,13 +3,22 @@ package fr.aeris.metadatatemplate.rest.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Document(collection = MetadataTemplate.COLLECTION_NAME, language = "english")
 public class MetadataTemplate {
-	
+
+	@Id
+	private String id;
+
+	public final static String COLLECTION_NAME = "templates";
+
 	private String name;
 	private List<String> metadataTab;
 	private List<String> downloadTab;
@@ -51,7 +60,7 @@ public class MetadataTemplate {
 	public List<String> getVisualisationTab() {
 		return visualisationTab;
 	}
-	
+
 	public void setVisualisationTab(List<String> visualisationTab) {
 		this.visualisationTab = visualisationTab;
 	}
@@ -69,14 +78,14 @@ public class MetadataTemplate {
 		}
 		downloadTab.add(blockName);
 	}
-	
+
 	public void addStatisticsBlock(String blockName) {
 		if (statisticsTab == null) {
 			statisticsTab = new ArrayList<>();
 		}
 		statisticsTab.add(blockName);
 	}
-	
+
 	public void addVisualisationBlock(String blockName) {
 		if (visualisationTab == null) {
 			visualisationTab = new ArrayList<>();

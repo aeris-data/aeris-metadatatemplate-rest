@@ -4,6 +4,7 @@ import javax.servlet.ServletContext;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -17,12 +18,25 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
 	@Bean
-	public Docket api(ServletContext servletContext) {
+	@Profile("!" + Profiles.PRODUCTION_PROFILE)
+	public Docket testApi(ServletContext servletContext) {
 		return new Docket(DocumentationType.SWAGGER_2).pathProvider(new RelativePathProvider(servletContext) {
 			@Override
 			public String getApplicationBasePath() {
 				return "/";
 			}
 		}).select().apis(RequestHandlerSelectors.basePackage("fr.aeris")).paths(PathSelectors.any()).build();
+	}
+
+	@Bean
+	@Profile(Profiles.PRODUCTION_PROFILE)
+	public Docket prodApi(ServletContext servletContext) {
+		return new Docket(DocumentationType.SWAGGER_2).pathMapping("/metadatatemplate")
+				.pathProvider(new RelativePathProvider(servletContext) {
+					@Override
+					public String getApplicationBasePath() {
+						return "/";
+					}
+				}).select().apis(RequestHandlerSelectors.basePackage("fr.aeris")).paths(PathSelectors.any()).build();
 	}
 }
