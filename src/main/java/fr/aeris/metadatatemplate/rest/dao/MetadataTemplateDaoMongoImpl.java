@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import fr.aeris.metadatatemplate.rest.domain.MetadataTemplate;
 
-@Component
+@Component("MetadataTemplateDaoMongoImpl_v1")
 public class MetadataTemplateDaoMongoImpl implements MetadataTemplateDao {
 
 	@Autowired

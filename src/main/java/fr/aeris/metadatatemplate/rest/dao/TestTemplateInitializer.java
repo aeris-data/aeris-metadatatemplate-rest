@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import fr.aeris.metadatatemplate.rest.domain.MetadataTemplate;
 
-@Component
+@Component("TestTemplateInitializer_v1")
 public class TestTemplateInitializer {
 
 	@Autowired
