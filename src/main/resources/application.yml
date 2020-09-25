@@ -6,10 +6,16 @@ spring:
       host: localhost
       port: 27017
       database: metadatatemplates
+      
+---
+spring.profiles: actuator
+
+spring:
    boot:
        admin:
            client:
                url: http://127.0.0.1:9999      
+      
 info:
     description: https://www.sedoo.fr/metadatatemplates
     code:
@@ -37,23 +43,24 @@ management:
             northstar:
                 cacheup: 240
                 cachedown: 120   
+
 ---
 
 spring.profiles: prod
 
-info:
-    hosting:
-        machine: TWODOO
-        installationFolder: /export1/metadatatemplates
+#info:
+#    hosting:
+#        machine: TWODOO
+#        installationFolder: /export1/metadatatemplates
 
 spring:
-   boot:
-       admin:
-           client:
-               url: https://monitoring.sedoo.fr
-               boot:
-               instance:
-                   service-base-url: https://services.sedoo.fr/metadatatemplate
-                   service-path: /metadatatemplate
+#   boot:
+#       admin:
+#           client:
+#               url: https://monitoring.sedoo.fr
+#               boot:
+#               instance:
+#                   service-base-url: https://services.sedoo.fr/metadatatemplate
+#                   service-path: /metadatatemplate
    data.mongodb:
       host: 193.52.225.51
